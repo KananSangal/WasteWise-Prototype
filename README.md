@@ -122,4 +122,3 @@ The original blueprint pack (specs of record) lives in [`docs/`](docs/): archite
 ## 📄 License / provenance
 
 Built as a student exhibition project. Demo data is synthetic. Google, Meta and other names never appear as endorsements. Fuel savings and forecast accuracy are labelled estimates — not measured performance.
-# agentx

@@ -4,7 +4,7 @@ import { useApi } from "../hooks";
 import { DonutChart } from "../components/charts";
 import { Button, Card, EmptyState, ErrorState, PageHeader, Select, Spinner, StatCard } from "../components/ui";
 
-const COLORS = ["#34d399", "#7dd3fc", "#a3e635", "#fbbf24", "#fb7185", "#a78bfa", "#f472b6", "#38bdf8", "#94a3b8"];
+const COLORS = ["#059669", "#0284c7", "#65a30d", "#d97706", "#dc2626", "#7c3aed", "#db2777", "#0369a1", "#64748b"];
 
 export default function Recycling() {
   const summary = useApi(() => api.recyclingSummary(), []);

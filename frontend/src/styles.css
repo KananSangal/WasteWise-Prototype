@@ -1,18 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-abyss: #070b14;
-  --color-panel: #0d1424;
-  --color-panel2: #111b30;
-  --color-edge: #1c2a45;
-  --color-ink: #e6edf7;
-  --color-dim: #8fa0bd;
-  --color-lime: #a3e635;
-  --color-critical: #fb7185;
-  --color-warning: #fbbf24;
-  --color-normal: #34d399;
-  --color-stale: #a78bfa;
-  --color-peri: #7dd3fc;
+  /* ── Light theme ─────────────────────────────────────────────── */
+  --color-abyss: #f6f8fb; /* page background */
+  --color-panel: #ffffff; /* cards */
+  --color-panel2: #eef2f8; /* inner tiles / soft surfaces */
+  --color-edge: #dce3ee; /* hairline borders */
+  --color-ink: #17233c; /* primary text */
+  --color-dim: #5f6f88; /* secondary text */
+  --color-lime: #65a30d; /* primary accent */
+  --color-critical: #dc2626;
+  --color-warning: #d97706;
+  --color-normal: #059669;
+  --color-stale: #7c3aed;
+  --color-peri: #0284c7;
 }
 
 html,
@@ -23,8 +24,8 @@ body,
 
 body {
   background:
-    radial-gradient(1200px 600px at 80% -10%, rgba(125, 211, 252, 0.06), transparent),
-    radial-gradient(900px 500px at -10% 110%, rgba(163, 230, 53, 0.05), transparent),
+    radial-gradient(1200px 600px at 80% -10%, rgba(2, 132, 199, 0.06), transparent),
+    radial-gradient(900px 500px at -10% 110%, rgba(101, 163, 13, 0.05), transparent),
     var(--color-abyss);
   color: var(--color-ink);
   font-family: ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
@@ -35,8 +36,11 @@ body {
   height: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-edge);
+  background: #c6d0df;
   border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #aab8cc;
 }
 ::-webkit-scrollbar-track {
   background: transparent;

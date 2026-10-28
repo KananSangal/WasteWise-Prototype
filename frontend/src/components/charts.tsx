@@ -21,7 +21,7 @@ export function DonutChart({
   return (
     <div className="flex flex-wrap items-center gap-6">
       <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} role="img" aria-label="Distribution chart">
-        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="#1c2a45" strokeWidth={thickness} />
+        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="#e2e8f0" strokeWidth={thickness} />
         {total > 0 &&
           segments.map((s) => {
             const len = (s.value / total) * c;
@@ -49,8 +49,8 @@ export function DonutChart({
             y="47%"
             textAnchor="middle"
             dominantBaseline="middle"
-            className="fill-[#e6edf7] text-xl font-bold"
-            style={{ fontSize: 22, fontWeight: 700, fill: "#e6edf7" }}
+            className="fill-[#17233c] text-xl font-bold"
+            style={{ fontSize: 22, fontWeight: 700, fill: "#17233c" }}
           >
             {centerValue}
           </text>
@@ -61,7 +61,7 @@ export function DonutChart({
             y="60%"
             textAnchor="middle"
             dominantBaseline="middle"
-            style={{ fontSize: 10, fill: "#8fa0bd", letterSpacing: 1 }}
+            style={{ fontSize: 10, fill: "#5f6f88", letterSpacing: 1 }}
           >
             {centerLabel.toUpperCase()}
           </text>
@@ -99,7 +99,7 @@ export function BarList({
             <div className="h-2 overflow-hidden rounded-full bg-edge/50">
               <div
                 className="h-full rounded-full"
-                style={{ width: `${(it.value / max) * 100}%`, background: it.color ?? "#7dd3fc" }}
+                style={{ width: `${(it.value / max) * 100}%`, background: it.color ?? "#0284c7" }}
               />
             </div>
           </li>
@@ -171,20 +171,20 @@ export function ForecastChart({
     <svg viewBox={`0 0 ${W} ${H}`} className="w-full" role="img" aria-label="Forecast chart">
       {gridVals.map((v) => (
         <g key={v}>
-          <line x1={padL} x2={W - padR} y1={y(v)} y2={y(v)} stroke="#1c2a45" strokeWidth={1} />
-          <text x={padL - 6} y={y(v) + 3} textAnchor="end" style={{ fontSize: 9, fill: "#8fa0bd" }}>
+          <line x1={padL} x2={W - padR} y1={y(v)} y2={y(v)} stroke="#e2e8f0" strokeWidth={1} />
+          <text x={padL - 6} y={y(v) + 3} textAnchor="end" style={{ fontSize: 9, fill: "#5f6f88" }}>
             {v}%
           </text>
         </g>
       ))}
 
-      {bands && bandArea && <path d={bandArea} fill="#a3e635" fillOpacity={0.12} />}
+      {bands && bandArea && <path d={bandArea} fill="#65a30d" fillOpacity={0.12} />}
 
-      <path d={line(history)} fill="none" stroke="#7dd3fc" strokeWidth={2} strokeLinejoin="round" />
+      <path d={line(history)} fill="none" stroke="#0284c7" strokeWidth={2} strokeLinejoin="round" />
       <path
         d={line(joinedForecast)}
         fill="none"
-        stroke="#a3e635"
+        stroke="#65a30d"
         strokeWidth={2}
         strokeDasharray="5 4"
         strokeLinejoin="round"
@@ -195,7 +195,7 @@ export function ForecastChart({
           cx={x(Date.parse(history[history.length - 1].t))}
           cy={y(history[history.length - 1].v)}
           r={3.5}
-          fill="#7dd3fc"
+          fill="#0284c7"
         />
       )}
       {forecast.length > 0 && (
@@ -203,8 +203,8 @@ export function ForecastChart({
           cx={x(Date.parse(forecast[forecast.length - 1].t))}
           cy={y(forecast[forecast.length - 1].v)}
           r={4}
-          fill="#a3e635"
-          stroke="#070b14"
+          fill="#65a30d"
+          stroke="#ffffff"
           strokeWidth={1.5}
         />
       )}
@@ -218,7 +218,7 @@ export function ForecastChart({
             x={x(Date.parse(t!))}
             y={H - 8}
             textAnchor={i === 0 ? "start" : i === arr.length - 1 ? "end" : "middle"}
-            style={{ fontSize: 9, fill: "#8fa0bd" }}
+            style={{ fontSize: 9, fill: "#5f6f88" }}
           >
             {fmtT(t!)}
           </text>
@@ -231,7 +231,7 @@ export function Sparkline({
   points,
   width = 120,
   height = 32,
-  color = "#7dd3fc",
+  color = "#0284c7",
 }: {
   points: number[];
   width?: number;
