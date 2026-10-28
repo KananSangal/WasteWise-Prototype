@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --color-abyss: #070b14;
+  --color-panel: #0d1424;
+  --color-panel2: #111b30;
+  --color-edge: #1c2a45;
+  --color-ink: #e6edf7;
+  --color-dim: #8fa0bd;
+  --color-lime: #a3e635;
+  --color-critical: #fb7185;
+  --color-warning: #fbbf24;
+  --color-normal: #34d399;
+  --color-stale: #a78bfa;
+  --color-peri: #7dd3fc;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(125, 211, 252, 0.06), transparent),
+    radial-gradient(900px 500px at -10% 110%, rgba(163, 230, 53, 0.05), transparent),
+    var(--color-abyss);
+  color: var(--color-ink);
+  font-family: ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-edge);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse-dot {
+    animation: none;
+  }
+}
