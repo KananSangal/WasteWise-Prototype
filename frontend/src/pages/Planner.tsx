@@ -155,7 +155,7 @@ export default function Planner() {
                       }`}
                       onClick={() => setSelectedBin(s.bin_id)}
                     >
-                      <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-lime text-[11px] font-bold text-abyss">
+                      <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-lime text-[11px] font-bold text-white">
                         {s.sequence}
                       </span>
                       <div className="min-w-0 flex-1">

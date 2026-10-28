@@ -19,9 +19,9 @@ const H = 560;
 const PAD = 60;
 
 const STATUS_FILL: Record<string, string> = {
-  CRITICAL: "#fb7185",
-  WARNING: "#fbbf24",
-  NORMAL: "#34d399",
+  CRITICAL: "#dc2626",
+  WARNING: "#d97706",
+  NORMAL: "#059669",
 };
 
 export default function CityMap({
@@ -88,7 +88,7 @@ export default function CityMap({
   }, [stops]);
 
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-edge bg-[#0a101e]">
+    <div className="relative overflow-hidden rounded-2xl border border-edge bg-[#edf2f9]">
       <svg
         viewBox={`0 0 ${W} ${H}`}
         style={height ? { height } : undefined}
@@ -98,10 +98,10 @@ export default function CityMap({
       >
         <defs>
           <pattern id="grid" width="45" height="45" patternUnits="userSpaceOnUse">
-            <path d="M45 0H0V45" fill="none" stroke="#131d33" strokeWidth="1" />
+            <path d="M45 0H0V45" fill="none" stroke="#e3eaf3" strokeWidth="1" />
           </pattern>
           <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M0 0L10 5L0 10z" fill="#a3e635" />
+            <path d="M0 0L10 5L0 10z" fill="#65a30d" />
           </marker>
         </defs>
         <rect width={W} height={H} fill="url(#grid)" />
@@ -113,7 +113,7 @@ export default function CityMap({
             x={z.x}
             y={z.y - 46}
             textAnchor="middle"
-            style={{ fontSize: 11, letterSpacing: 3, fill: "#4d5f82", textTransform: "uppercase" }}
+            style={{ fontSize: 11, letterSpacing: 3, fill: "#93a3ba", textTransform: "uppercase" }}
           >
             {z.name}
           </text>
@@ -122,11 +122,11 @@ export default function CityMap({
         {/* route */}
         {routePath && (
           <>
-            <path d={routePath} fill="none" stroke="#a3e635" strokeWidth={2.5} strokeOpacity={0.25} />
+            <path d={routePath} fill="none" stroke="#65a30d" strokeWidth={2.5} strokeOpacity={0.25} />
             <path
               d={routePath}
               fill="none"
-              stroke="#a3e635"
+              stroke="#65a30d"
               strokeWidth={2}
               strokeDasharray="7 6"
               marker-mid="url(#arrow)"
@@ -146,14 +146,14 @@ export default function CityMap({
                   width={22}
                   height={22}
                   rx={5}
-                  fill="#0d1424"
-                  stroke="#7dd3fc"
+                  fill="#ffffff"
+                  stroke="#0284c7"
                   strokeWidth={2}
                 />
-                <text x={x} y={y + 4} textAnchor="middle" style={{ fontSize: 11, fill: "#7dd3fc" }}>
+                <text x={x} y={y + 4} textAnchor="middle" style={{ fontSize: 11, fill: "#0284c7" }}>
                   ▣
                 </text>
-                <text x={x} y={y - 18} textAnchor="middle" style={{ fontSize: 10, fill: "#7dd3fc" }}>
+                <text x={x} y={y - 18} textAnchor="middle" style={{ fontSize: 10, fill: "#0284c7" }}>
                   {depot.name.replace(" (Demo)", "")}
                 </text>
               </g>
@@ -163,7 +163,7 @@ export default function CityMap({
         {/* bins */}
         {bins.map((b) => {
           const [x, y] = project(b.latitude, b.longitude);
-          const fill = b.is_stale ? "#a78bfa" : STATUS_FILL[b.status ?? "NORMAL"] ?? "#34d399";
+          const fill = b.is_stale ? "#7c3aed" : STATUS_FILL[b.status ?? "NORMAL"] ?? "#059669";
           const r = 13;
           const circ = 2 * Math.PI * 10;
           const isSel = selectedBinId === b.id;
@@ -178,7 +178,7 @@ export default function CityMap({
               style={{ cursor: onSelectBin ? "pointer" : "default" }}
             >
               {(isSel || isHover) && <circle cx={x} cy={y} r={r + 6} fill={fill} fillOpacity={0.15} />}
-              <circle cx={x} cy={y} r={r} fill="#0d1424" stroke={fill} strokeWidth={2} />
+              <circle cx={x} cy={y} r={r} fill="#ffffff" stroke={fill} strokeWidth={2} />
               {/* fill level arc */}
               <circle
                 cx={x}
@@ -196,25 +196,25 @@ export default function CityMap({
                 x={x}
                 y={y + 3.5}
                 textAnchor="middle"
-                style={{ fontSize: 9, fontWeight: 700, fill: "#e6edf7" }}
+                style={{ fontSize: 9, fontWeight: 700, fill: "#17233c" }}
               >
                 {Math.round(b.fill_percent ?? 0)}
               </text>
               {seq !== undefined && (
                 <g>
-                  <circle cx={x + r + 2} cy={y - r - 2} r={8} fill="#a3e635" />
+                  <circle cx={x + r + 2} cy={y - r - 2} r={8} fill="#65a30d" />
                   <text
                     x={x + r + 2}
                     y={y - r + 1}
                     textAnchor="middle"
-                    style={{ fontSize: 9, fontWeight: 800, fill: "#070b14" }}
+                    style={{ fontSize: 9, fontWeight: 800, fill: "#ffffff" }}
                   >
                     {seq}
                   </text>
                 </g>
               )}
               {(isHover || isSel) && (
-                <text x={x} y={y + r + 14} textAnchor="middle" style={{ fontSize: 10, fill: "#e6edf7" }}>
+                <text x={x} y={y + r + 14} textAnchor="middle" style={{ fontSize: 10, fill: "#17233c" }}>
                   {b.name.replace(" (Demo)", "")}
                 </text>
               )}

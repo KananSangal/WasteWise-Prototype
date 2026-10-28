@@ -168,7 +168,7 @@ export function Button({
   type?: "button" | "submit";
 }) {
   const styles = {
-    primary: "bg-lime text-abyss hover:bg-lime/85 font-semibold",
+    primary: "bg-lime text-white hover:bg-lime/85 font-semibold",
     secondary: "border border-edge bg-panel2 text-ink hover:border-peri/50",
     ghost: "text-dim hover:text-ink",
     danger: "border border-critical/40 bg-critical/10 text-critical hover:bg-critical/20",

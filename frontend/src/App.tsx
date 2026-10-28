@@ -31,7 +31,7 @@ export default function App() {
         {/* ── sidebar ── */}
         <aside className="sticky top-0 hidden h-screen w-60 shrink-0 flex-col border-r border-edge bg-panel/60 backdrop-blur md:flex">
           <div className="flex items-center gap-2.5 px-5 py-5">
-            <span className="flex size-9 items-center justify-center rounded-xl bg-lime text-lg text-abyss">
+            <span className="flex size-9 items-center justify-center rounded-xl bg-lime text-lg text-white">
               ♻
             </span>
             <div>
@@ -74,7 +74,7 @@ export default function App() {
           <div className="sticky top-0 z-40 border-b border-edge bg-abyss/90 backdrop-blur md:hidden">
             <div className="flex items-center justify-between px-4 py-3">
               <p className="flex items-center gap-2 font-extrabold text-ink">
-                <span className="flex size-7 items-center justify-center rounded-lg bg-lime text-abyss">♻</span>
+                <span className="flex size-7 items-center justify-center rounded-lg bg-lime text-white">♻</span>
                 WasteWise
               </p>
               <DemoTag>Demo</DemoTag>
